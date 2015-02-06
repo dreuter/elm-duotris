@@ -5,4 +5,4 @@ This is a clone of the [Duotris game](http://www.binaryzoo.com/duotris_page/) de
 Controls are as follows:
 * Left - h
 * Right - l
-* Down - k
+* Down - j
