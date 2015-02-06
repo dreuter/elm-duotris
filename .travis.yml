@@ -1,6 +1,8 @@
 language: haskell
-before_install: "make installElm"
-script: "make deploy"
+install:
+  - make installElm
+script: 
+  - make deploy
 branches:
   only:
   - master
