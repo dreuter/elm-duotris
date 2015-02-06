@@ -1,0 +1,9 @@
+language: haskell
+before_install: "make installElm"
+script: "make deploy"
+branches:
+  only:
+  - master
+env:
+  global:
+    secure: JmTSiUkts7oHnx3R5UYGRfdA6ZtV22cN6nnudFGWdMr82T6RQyH/9SCUjDjkcwa2xg37v24h6Ib5TV6+I1SIjUJyq8IsfFJLwanWxevRNIeAQgDuwkci6vYCjXbBm9i7MEfwvk0Ev5dmc+ShZ5NRga3NNE7RC44BG4SrM+hovgY=
