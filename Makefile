@@ -19,8 +19,7 @@ deploy: out.html
 	git push --quiet origin gh-pages > /dev/null 2>&1
 
 out.html: installElm ${ELM-SRCS}
-	export PATH=${PATH}:./Elm-Platform/0.14/bin
-	elm-make duotris.elm --output out.html
+	./Elm-Platform/0.14/bin/elm-make duotris.elm --output out.html --yes
 
 installElm:
 	curl -O https://raw.githubusercontent.com/elm-lang/elm-platform/master/installers/BuildFromSource.hs
