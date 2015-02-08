@@ -35,9 +35,10 @@ maybeInsert key mval (Board dict) =
     _ -> Board dict
 
 isBlocked : Location -> Board -> Bool
-isBlocked (x,y) (Board b) = if y == 0
-    then True
-    else Dict.member (x,y) b
+isBlocked (x,y) (Board b) =
+    if (y == 0) || (abs x > floor (boardWidth / 2))
+        then True
+        else Dict.member (x,y) b
 
 insert loc val (Board dict) = Board <| Dict.insert loc val dict
 

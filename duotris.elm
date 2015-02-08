@@ -86,12 +86,23 @@ stepGame inp gameState =
     checkGameOver <| replaceLost <| checkDropped <|
     case inp of
         Step -> let (x,y) = gameState.cursor in { gameState | cursor <- (x, y-1)}
-        Move m -> { gameState | cursor <- locAdd gameState.cursor <| todLoc m }
+        Move m ->
+          let newPos = locAdd gameState.cursor <| todLoc m in
+          let b = gameState.board in
+          let gs = gameState in
+          if isJust gs.upper && isBlocked newPos b
+            || isJust gs.lower && isBlocked (negateLocation newPos) b
+            then gameState
+            else { gameState | cursor <- newPos }
         _    -> gameState
 
 isNothing m = case m of
     Nothing -> True
     _ -> False
+
+isJust m = case m of
+    Just _ -> True
+    Nothing -> False
 
 checkGameOver gs =
     if anyInTopRow gs.board
