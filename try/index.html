@@ -281,7 +281,7 @@ Elm.Board.make = function (_elm) {
               loc,
               _v0._0);}
          _U.badCase($moduleName,
-         "on line 53, column 21 to 35");
+         "on line 54, column 21 to 35");
       }();
    });
    var anyInTopRow = function (_v3) {
@@ -298,11 +298,11 @@ Elm.Board.make = function (_elm) {
                               $Basics.abs(_v6._0._1));}
                          break;}
                     _U.badCase($moduleName,
-                    "on line 50, column 25 to 50");
+                    "on line 51, column 25 to 50");
                  }();
               })($Dict.toList(_v3._0));}
          _U.badCase($moduleName,
-         "on line 50, column 5 to 69");
+         "on line 51, column 5 to 69");
       }();
    };
    var isBlocked = F2(function (_v12,
@@ -314,16 +314,17 @@ Elm.Board.make = function (_elm) {
                  switch (_v12.ctor)
                  {case "_Tuple2":
                     return _U.eq(_v12._1,
-                      0) ? true : A2($Dict.member,
+                      0) || _U.cmp($Basics.abs(_v12._0),
+                      $Basics.floor($Constants.boardWidth / 2)) > 0 ? true : A2($Dict.member,
                       {ctor: "_Tuple2"
                       ,_0: _v12._0
                       ,_1: _v12._1},
                       _v13._0);}
                  _U.badCase($moduleName,
-                 "between lines 38 and 40");
+                 "between lines 39 and 41");
               }();}
          _U.badCase($moduleName,
-         "between lines 38 and 40");
+         "between lines 39 and 41");
       }();
    });
    var asElement = function (_v19) {
@@ -400,7 +401,7 @@ Elm.Board.make = function (_elm) {
               val,
               _v31._0));}
          _U.badCase($moduleName,
-         "on line 42, column 31 to 64");
+         "on line 43, column 31 to 64");
       }();
    });
    var $delete = F2(function (loc,
@@ -412,7 +413,7 @@ Elm.Board.make = function (_elm) {
               loc,
               _v34._0));}
          _U.badCase($moduleName,
-         "on line 44, column 27 to 56");
+         "on line 45, column 27 to 56");
       }();
    });
    var pop = F2(function (loc,b) {
@@ -444,7 +445,7 @@ Elm.Board.make = function (_elm) {
                  _v37._1,
                  b$);}
             _U.badCase($moduleName,
-            "on line 73, column 49 to 69");
+            "on line 74, column 49 to 69");
          }();
       }),
       b,
@@ -460,7 +461,7 @@ Elm.Board.make = function (_elm) {
               _v41._0,
               locs));}
          _U.badCase($moduleName,
-         "on line 47, column 36 to 72");
+         "on line 48, column 36 to 72");
       }();
    });
    var gravityOneRow = F2(function (r,
@@ -481,7 +482,7 @@ Elm.Board.make = function (_elm) {
                                       ,_0: r
                                       ,_1: _v59._0}};}
                        _U.badCase($moduleName,
-                       "on line 61, column 50 to 67");
+                       "on line 62, column 50 to 67");
                     }();
                  })($List.indexedMap(F2(function (x,
                  y) {
@@ -497,7 +498,7 @@ Elm.Board.make = function (_elm) {
                                return _v53._0._1;}
                             break;}
                        _U.badCase($moduleName,
-                       "on line 61, column 133 to 134");
+                       "on line 62, column 133 to 134");
                     }();
                  })(A2($List.filter,
                  function (_v47) {
@@ -510,7 +511,7 @@ Elm.Board.make = function (_elm) {
                                  r) && _U.cmp(_v47._0._1,0) > 0;}
                             break;}
                        _U.badCase($moduleName,
-                       "on line 61, column 161 to 176");
+                       "on line 62, column 161 to 176");
                     }();
                  },
                  $Dict.toList(_v44._0))))));
@@ -526,7 +527,7 @@ Elm.Board.make = function (_elm) {
                                       ,_0: r
                                       ,_1: _v75._0}};}
                        _U.badCase($moduleName,
-                       "on line 62, column 50 to 67");
+                       "on line 63, column 50 to 67");
                     }();
                  })($List.indexedMap(F2(function (x,
                  y) {
@@ -542,7 +543,7 @@ Elm.Board.make = function (_elm) {
                                return _v69._0._1;}
                             break;}
                        _U.badCase($moduleName,
-                       "on line 62, column 145 to 146");
+                       "on line 63, column 145 to 146");
                     }();
                  })(A2($List.filter,
                  function (_v63) {
@@ -555,7 +556,7 @@ Elm.Board.make = function (_elm) {
                                  r) && _U.cmp(_v63._0._1,0) < 0;}
                             break;}
                        _U.badCase($moduleName,
-                       "on line 62, column 173 to 188");
+                       "on line 63, column 173 to 188");
                     }();
                  },
                  $Dict.toList(_v44._0)))))));
@@ -566,7 +567,7 @@ Elm.Board.make = function (_elm) {
                  Board(_v44._0));
               }();}
          _U.badCase($moduleName,
-         "between lines 61 and 63");
+         "between lines 62 and 64");
       }();
    });
    var gravity = F2(function (rows,
@@ -3648,7 +3649,7 @@ Elm.Main.make = function (_elm) {
                                                 gs.board))]],
               gs).board);}
          _U.badCase($moduleName,
-         "between lines 143 and 146");
+         "between lines 154 and 157");
       }();
    });
    var applyOrDefault = F3(function (m,
@@ -3704,6 +3705,15 @@ Elm.Main.make = function (_elm) {
             gs) : gs;
          }();
       }));
+   };
+   var isJust = function (m) {
+      return function () {
+         switch (m.ctor)
+         {case "Just": return true;
+            case "Nothing": return false;}
+         _U.badCase($moduleName,
+         "between lines 103 and 105");
+      }();
    };
    var isNothing = function (m) {
       return function () {
@@ -3789,9 +3799,18 @@ Elm.Main.make = function (_elm) {
       return $Debug.watch("GameState")($GameLogic.removeCluster(checkGameOver(replaceLost(checkDropped(function () {
          switch (inp.ctor)
          {case "Move":
-            return _U.replace([["cursor"
-                               ,$Location.locAdd(gameState.cursor)(todLoc(inp._0))]],
-              gameState);
+            return function () {
+                 var newPos = $Location.locAdd(gameState.cursor)(todLoc(inp._0));
+                 var b = gameState.board;
+                 var gs = gameState;
+                 return isJust(gs.upper) && A2($Board.isBlocked,
+                 newPos,
+                 b) || isJust(gs.lower) && A2($Board.isBlocked,
+                 $Location.negateLocation(newPos),
+                 b) ? gameState : _U.replace([["cursor"
+                                              ,newPos]],
+                 gameState);
+              }();
             case "Step":
             return function () {
                  var $ = gameState.cursor,
@@ -3817,21 +3836,21 @@ Elm.Main.make = function (_elm) {
       return {ctor: "Move",_0: a};
    };
    var keyInput = function (s) {
-      return $Signal.map(function (_v10) {
+      return $Signal.map(function (_v12) {
          return function () {
             return function () {
-               var _v12 = _v10.x;
-               switch (_v12)
+               var _v14 = _v12.x;
+               switch (_v14)
                {case -1: return Move(Left);
                   case 0: return function () {
-                       var _v13 = _v10.y;
-                       switch (_v13)
+                       var _v15 = _v12.y;
+                       switch (_v15)
                        {case -1: return Move(Down);}
                        return Move(NoMovement);
                     }();
                   case 1: return Move(Right);}
                _U.badCase($moduleName,
-               "between lines 161 and 167");
+               "between lines 172 and 178");
             }();
          }();
       })(A2($Signal.merge,
@@ -3844,7 +3863,7 @@ Elm.Main.make = function (_elm) {
    $Constants.keys.down,
    $Constants.keys.left,
    $Constants.keys.right));
-   var input = $Signal.merge(keyInput)($Signal.map(function (_v14) {
+   var input = $Signal.merge(keyInput)($Signal.map(function (_v16) {
       return function () {
          return Step;
       }();
@@ -3870,6 +3889,7 @@ Elm.Main.make = function (_elm) {
                       ,defaultGame: defaultGame
                       ,stepGame: stepGame
                       ,isNothing: isNothing
+                      ,isJust: isJust
                       ,checkGameOver: checkGameOver
                       ,replaceLost: replaceLost
                       ,checkDropped: checkDropped
